@@ -24,6 +24,7 @@ module.exports = {
   ],
   module: {
     rules: [
+      { test: /\.html$/, use: ['html-loader'] },
       {
         test: /\.js$/,
         enforce: 'pre',
@@ -47,6 +48,9 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
+        generator: {
+          filename: 'images/[hash][ext]',
+        },
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
